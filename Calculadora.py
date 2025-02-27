@@ -24,6 +24,11 @@ def calcular():
     except ValueError:
         label_resultado.config(text="Por favor, insira números válidos.")
 
+def limpar():
+    entry_numero1.delete(0, tk.END)
+    entry_numero2.delete(0, tk.END)
+    label_resultado.config(text="")
+
 # Configuração da janela principal
 janela = tk.Tk()
 janela.title("Calculadora")
@@ -57,6 +62,10 @@ menu_operacoes.pack(pady=5)
 # Botão para calcular
 botao_calcular = tk.Button(janela, text="Calcular", command=calcular)
 botao_calcular.pack(pady=5)
+
+# Botão para limpar
+botao_limpar = tk.Button(janela, text="Limpar", command=limpar)
+botao_limpar.pack(pady=5)
 
 # Label para mostrar o resultado
 label_resultado = tk.Label(janela, text="", justify="left")
